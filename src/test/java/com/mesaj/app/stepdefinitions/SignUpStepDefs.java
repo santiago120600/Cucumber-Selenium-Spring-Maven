@@ -1,6 +1,7 @@
 package com.mesaj.app.stepdefinitions;
 
 import com.mesaj.app.pageObjects.SignUpPageObject;
+import com.mesaj.app.pageObjects.SignUpService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,25 +15,26 @@ public class SignUpStepDefs {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-        SignUpPageObject signUpPageObject = new SignUpPageObject(driver);
-        signUpPageObject.go(driver, "http://demo.automationtesting.in/Register.html");
-        signUpPageObject.writeFirstName("Santiago");
-        signUpPageObject.writeLastName("Arvizu");
-        signUpPageObject.writeAddress("Melchor Ocampo");
-        signUpPageObject.writeEmail("santiagodev12@gmail.com");
-        signUpPageObject.writePhone("1234567890");
-        signUpPageObject.selectGender("M");
-        signUpPageObject.selectSkills("C");
-        signUpPageObject.selectCountry("India");
-        signUpPageObject.selectYear("2000");
-        signUpPageObject.selectMonth("June");
-        signUpPageObject.selectDay("12");
-        signUpPageObject.writePassword("1234");
-        signUpPageObject.writeConfirmPassword("1234");
-        signUpPageObject.uploadImg("C:\\Users\\santi\\Pictures\\277253636_513647600208985_3208975158974945117_n.jpg");
-        signUpPageObject.sleep(3);
-        signUpPageObject.submit();
-        signUpPageObject.sleep(3);
+        SignUpService signUpService = new SignUpService(driver);
+
+        signUpService.go(driver, "http://demo.automationtesting.in/Register.html");
+        signUpService.writeFirstName("Santiago");
+        signUpService.writeLastName("Arvizu");
+        signUpService.writeAddress("Melchor Ocampo");
+        signUpService.writeEmail("santiagodev12@gmail.com");
+        signUpService.writePhone("1234567890");
+        signUpService.selectGender("M");
+        signUpService.selectSkills("C");
+        signUpService.selectCountry("India");
+        signUpService.selectYear("2000");
+        signUpService.selectMonth("June");
+        signUpService.selectDay("12");
+        signUpService.writePassword("1234");
+        signUpService.writeConfirmPassword("1234");
+        signUpService.uploadImg("C:\\Users\\santi\\Pictures\\277253636_513647600208985_3208975158974945117_n.jpg");
+        signUpService.sleep(3);
+        signUpService.submit();
+        signUpService.sleep(3);
         driver.quit();
 
     }

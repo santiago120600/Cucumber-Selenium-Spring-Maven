@@ -3,7 +3,7 @@ package com.mesaj.app.pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpService {
+public class SignUpService extends BasePage{
 
     private WebDriver driver;
 
@@ -13,69 +13,68 @@ public class SignUpService {
         this.driver = driver;
         signUpPageObject = new SignUpPageObject(driver);
     }
-    /*
+
     public void writeFirstName(String firstName){
-        this.firstNameTextbox.sendKeys(firstName);
+        this.signUpPageObject.getFirstNameTextbox().sendKeys(firstName);
     }
 
     public void writeLastName(String lastName){
-        this.lastNameTextbox.sendKeys(lastName);
+        this.signUpPageObject.getLastNameTextbox().sendKeys(lastName);
     }
 
     public void writeAddress(String address){
-        this.addressTextbox.sendKeys(address);
+        this.signUpPageObject.getAddressTextbox().sendKeys(address);
     }
 
     public void writeEmail(String email){
-        this.emailTextbox.sendKeys(email);
+        this.signUpPageObject.getEmailTextbox().sendKeys(email);
     }
 
     public void writePhone(String phone){
-        this.phoneTextBox.sendKeys(phone);
+        this.signUpPageObject.getPhoneTextBox().sendKeys(phone);
     }
 
     public void selectGender(String gender){
         if(gender.equals("M")){
-            maleRadioOptions.click();
+            signUpPageObject.getMaleRadioOptions().click();
         }else if(gender.equals("F")){
-            femaleRadioOptions.click();
+            signUpPageObject.getFemaleRadioOptions().click();
         }
     }
 
     public void selectSkills(String skills){
-        new Select(this.skillsSelect).selectByValue(skills);
+        new Select(this.signUpPageObject.getSkillsSelect()).selectByValue(skills);
     }
 
     public void selectCountry(String country){
-        new Select(this.countrySelect).selectByValue(country);
+        new Select(this.signUpPageObject.getCountrySelect()).selectByValue(country);
     }
 
     public void selectYear(String year){
-        new Select(this.yearSelect).selectByValue(year);
+        new Select(this.signUpPageObject.getYearSelect()).selectByValue(year);
     }
 
     public void selectMonth(String month){
-        new Select(this.monthSelect).selectByValue(month);
+        new Select(this.signUpPageObject.getMonthSelect()).selectByValue(month);
     }
 
     public void selectDay(String day){
-        new Select(this.daySelect).selectByValue(day);
+        new Select(this.signUpPageObject.getDaySelect()).selectByValue(day);
     }
 
     public void writePassword(String password){
-        this.passwordTextBox.sendKeys(password);
+        this.signUpPageObject.getPasswordTextBox().sendKeys(password);
     }
 
     public void writeConfirmPassword(String password){
-        this.confirmPasswordTextBox.sendKeys(password);
+        this.signUpPageObject.getConfirmPasswordTextBox().sendKeys(password);
     }
 
     public void uploadImg(String imgPath){
-        this.uploadImg.sendKeys(imgPath);
+        this.signUpPageObject.getUploadImg().sendKeys(imgPath);
     }
 
     public void submit(){
-        this.submitBtn.click();
+        this.signUpPageObject.getSubmitBtn().click();
     }
-    */
 }
