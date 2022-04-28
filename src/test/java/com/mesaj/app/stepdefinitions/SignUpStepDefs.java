@@ -1,23 +1,19 @@
 package com.mesaj.app.stepdefinitions;
 
-import com.mesaj.app.pageObjects.SignUpPageObject;
+import com.mesaj.app.HookDriver;
 import com.mesaj.app.pageObjects.SignUpService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SignUpStepDefs {
     @Given("Pepito wants to have an account")
     public void pepito_wants_to_have_an_account() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
 
-        SignUpService signUpService = new SignUpService(driver);
 
-        signUpService.go(driver, "http://demo.automationtesting.in/Register.html");
+        SignUpService signUpService = new SignUpService(HookDriver.driver);
+
+        signUpService.go(HookDriver.driver, "http://demo.automationtesting.in/Register.html");
         signUpService.writeFirstName("Santiago");
         signUpService.writeLastName("Arvizu");
         signUpService.writeAddress("Melchor Ocampo");
@@ -35,7 +31,6 @@ public class SignUpStepDefs {
         signUpService.sleep(3);
         signUpService.submit();
         signUpService.sleep(3);
-        driver.quit();
 
     }
 
