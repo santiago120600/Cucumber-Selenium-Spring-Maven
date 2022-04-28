@@ -1,36 +1,40 @@
 package com.mesaj.app.stepdefinitions;
 
-import com.mesaj.app.HookDriver;
+import com.mesaj.app.conf.DriverConfig;
 import com.mesaj.app.pageObjects.SignUpService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
+@ContextConfiguration(classes = {DriverConfig.class})
 public class SignUpStepDefs {
+
+    @Autowired
+    private SignUpService signUp;
+
     @Given("Pepito wants to have an account")
     public void pepito_wants_to_have_an_account() {
 
-
-        SignUpService signUpService = new SignUpService(HookDriver.driver);
-
-        signUpService.go(HookDriver.driver, "http://demo.automationtesting.in/Register.html");
-        signUpService.writeFirstName("Santiago");
-        signUpService.writeLastName("Arvizu");
-        signUpService.writeAddress("Melchor Ocampo");
-        signUpService.writeEmail("santiagodev12@gmail.com");
-        signUpService.writePhone("1234567890");
-        signUpService.selectGender("M");
-        signUpService.selectSkills("C");
-        signUpService.selectCountry("India");
-        signUpService.selectYear("2000");
-        signUpService.selectMonth("June");
-        signUpService.selectDay("12");
-        signUpService.writePassword("1234");
-        signUpService.writeConfirmPassword("1234");
-        signUpService.uploadImg("C:\\Users\\santi\\Pictures\\277253636_513647600208985_3208975158974945117_n.jpg");
-        signUpService.sleep(3);
-        signUpService.submit();
-        signUpService.sleep(3);
+        signUp.go("http://demo.automationtesting.in/Register.html");
+        signUp.writeFirstName("Santiago");
+        signUp.writeLastName("Arvizu");
+        signUp.writeAddress("Melchor Ocampo");
+        signUp.writeEmail("santiagodev12@gmail.com");
+        signUp.writePhone("1234567890");
+        signUp.selectGender("M");
+        signUp.selectSkills("C");
+        signUp.selectCountry("India");
+        signUp.selectYear("2000");
+        signUp.selectMonth("June");
+        signUp.selectDay("12");
+        signUp.writePassword("1234");
+        signUp.writeConfirmPassword("1234");
+        signUp.uploadImg("C:\\Users\\santi\\Pictures\\277253636_513647600208985_3208975158974945117_n.jpg");
+        signUp.sleep(3);
+        signUp.submit();
+        signUp.sleep(3);
 
     }
 

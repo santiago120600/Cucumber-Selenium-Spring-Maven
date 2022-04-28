@@ -2,16 +2,25 @@ package com.mesaj.app.pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SignUpService extends BasePage{
 
+    @Autowired
     private WebDriver driver;
 
+    @Autowired
     private SignUpPageObject signUpPageObject;
 
+    @Autowired
     public SignUpService(WebDriver driver) {
         this.driver = driver;
-        signUpPageObject = new SignUpPageObject(driver);
+    }
+
+    public void go(String url) {
+        this.driver.get(url);
     }
 
     public void writeFirstName(String firstName){
