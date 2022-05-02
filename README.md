@@ -1,4 +1,4 @@
 # Cucumber Java 
 
 ### Run
-`mvn clean test`
+`mvn clean test -Denvironment=dev`
