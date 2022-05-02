@@ -20,7 +20,6 @@ public class SignUpStepDefs {
 
     @Given("Pepito wants to have an account")
     public void pepito_wants_to_have_an_account() {
-
         signUp.go(url);
         signUp.writeFirstName("Santiago");
         signUp.writeLastName("Arvizu");
@@ -36,10 +35,7 @@ public class SignUpStepDefs {
         signUp.writePassword("1234");
         signUp.writeConfirmPassword("1234");
         signUp.uploadImg("C:\\Users\\santi\\Pictures\\277253636_513647600208985_3208975158974945117_n.jpg");
-        signUp.sleep(3);
         signUp.submit();
-        signUp.sleep(3);
-
     }
 
     @When("he sends required information to get the account")

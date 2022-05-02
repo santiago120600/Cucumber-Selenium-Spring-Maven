@@ -6,18 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SignUpService extends BasePage{
+public class SignUpService{
 
     @Autowired
     private WebDriver driver;
 
     @Autowired
     private SignUpPageObject signUpPageObject;
-
-    @Autowired
-    public SignUpService(WebDriver driver) {
-        this.driver = driver;
-    }
 
     public void go(String url) {
         this.driver.get(url);
