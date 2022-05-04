@@ -1,45 +1,33 @@
 package com.mesaj.app.stepdefinitions;
 
+import com.mesaj.app.builders.data.UserBuilder;
 import com.mesaj.app.conf.DriverConfig;
-import com.mesaj.app.pageObjects.SignUpService;
+import com.mesaj.app.tasks.NavigateTo;
+import com.mesaj.app.tasks.UserSignUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration(classes = {DriverConfig.class})
 public class SignUpStepDefs {
 
     @Autowired
-    private SignUpService signUp;
+    private UserSignUp signUp;
 
-    @Value("${url}")
-    private String url;
+    @Autowired
+    private NavigateTo navigate;
 
     @Given("Pepito wants to have an account")
     public void pepito_wants_to_have_an_account() {
-        signUp.go(url);
-        signUp.writeFirstName("Santiago");
-        signUp.writeLastName("Arvizu");
-        signUp.writeAddress("Melchor Ocampo");
-        signUp.writeEmail("santiagodev12@gmail.com");
-        signUp.writePhone("1234567890");
-        signUp.selectGender("M");
-        signUp.selectSkills("C");
-        signUp.selectCountry("India");
-        signUp.selectYear("2000");
-        signUp.selectMonth("June");
-        signUp.selectDay("12");
-        signUp.writePassword("1234");
-        signUp.writeConfirmPassword("1234");
-        signUp.uploadImg("C:\\Users\\santi\\Pictures\\277253636_513647600208985_3208975158974945117_n.jpg");
-        signUp.submit();
+        navigate.signUpPage();
     }
 
     @When("he sends required information to get the account")
-    public void he_sends_required_information_to_get_the_account() {
+    public void he_sends_required_information_to_get_the_account(){
+        //signUp.withInfo(UserBuilder.anUser().withDefaultInfo().build());
+        signUp.withInfo(UserBuilder.anUser().but().withoutAddress().build());
     }
 
     @Then("he should be told that the account was created")
