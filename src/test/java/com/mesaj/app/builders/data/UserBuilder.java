@@ -35,7 +35,7 @@ public class UserBuilder {
                 .address("Melchor Ocampo")
                 .skills("C")
                 .email("santiagodev12@gmail.com")
-                .gender(Gender.male)
+                .gender(Gender.female)
                 .country("India")
                 .birthDay("12")
                 .birthMonth("July")

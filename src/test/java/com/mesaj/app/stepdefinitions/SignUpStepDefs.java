@@ -4,6 +4,7 @@ import com.mesaj.app.builders.data.UserBuilder;
 import com.mesaj.app.conf.DriverConfig;
 import com.mesaj.app.tasks.NavigateTo;
 import com.mesaj.app.tasks.UserSignUp;
+import com.mesaj.app.util.driver.HelpFunctions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration(classes = {DriverConfig.class})
 public class SignUpStepDefs {
+    HelpFunctions help = new HelpFunctions();
 
     @Autowired
     private UserSignUp signUp;
@@ -28,6 +30,7 @@ public class SignUpStepDefs {
     public void he_sends_required_information_to_get_the_account(){
         //signUp.withInfo(UserBuilder.anUser().withDefaultInfo().build());
         signUp.withInfo(UserBuilder.anUser().but().withoutAddress().build());
+        help.sleep(3);
     }
 
     @Then("he should be told that the account was created")

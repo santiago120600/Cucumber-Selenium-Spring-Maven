@@ -1,5 +1,6 @@
 package com.mesaj.app.pageObjects;
 
+import com.mesaj.app.enums.Gender;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +39,10 @@ public class SignUpService{
         this.signUpPageObject.getPhoneTextBox().sendKeys(phone);
     }
 
-    public void selectGender(String gender){
-        if(gender.equals("M")){
+    public void selectGender(Gender gender){
+        if(gender == Gender.male){
             signUpPageObject.getMaleRadioOptions().click();
-        }else if(gender.equals("F")){
+        }else if(gender == Gender.female){
             signUpPageObject.getFemaleRadioOptions().click();
         }
     }
