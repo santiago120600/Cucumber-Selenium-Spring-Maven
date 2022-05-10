@@ -3,6 +3,7 @@ package com.mesaj.app.stepdefinitions;
 import com.mesaj.app.builders.data.UserBuilder;
 import com.mesaj.app.conf.DriverConfig;
 import com.mesaj.app.pageObjects.AuthenticationService;
+import com.mesaj.app.pageObjects.CreateAccountService;
 import com.mesaj.app.pageObjects.LandingPage;
 import com.mesaj.app.pageObjects.LandingPageService;
 import com.mesaj.app.tasks.NavigateTo;
@@ -27,6 +28,12 @@ public class SignUpStepDefs {
     @Autowired
     private AuthenticationService authenticationService;
 
+    @Autowired
+    private UserSignUp signUp;
+
+    @Autowired
+    private CreateAccountService createAccountService;
+
     @Given("Pepito wants to have an account")
     public void pepito_wants_to_have_an_account() {
         navigate.signUpPage();
@@ -37,9 +44,10 @@ public class SignUpStepDefs {
 
     @When("he sends required information to get the account")
     public void he_sends_required_information_to_get_the_account(){
-        //signUp.withInfo(UserBuilder.anUser().withDefaultInfo().build());
+        signUp.withInfo(UserBuilder.anUser().withDefaultInfo().build());
         //signUp.withInfo(UserBuilder.anUser().but().withoutAddress().build());
-        help.sleep(3);
+        //createAccountService.writeFirstName("Juan");
+        help.sleep(8);
     }
 
     @Then("he should be told that the account was created")

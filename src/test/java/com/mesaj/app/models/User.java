@@ -15,7 +15,7 @@ public class User {
     private String skills;
     private String country;
     private String birthDay;
-    private String birthMonth;
+    private int birthMonth;
     private String birtMonth;
     private String birthYear;
     private String phone;

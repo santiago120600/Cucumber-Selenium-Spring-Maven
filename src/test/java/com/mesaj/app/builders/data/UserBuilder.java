@@ -38,7 +38,7 @@ public class UserBuilder {
                 .gender(Gender.female)
                 .country("India")
                 .birthDay("12")
-                .birthMonth("July")
+                .birthMonth(1)
                 .birthYear("2000")
                 .phone("4428979798")
                 .password("1234")
