@@ -2,6 +2,7 @@ package com.mesaj.app.stepdefinitions;
 
 import com.mesaj.app.builders.data.UserBuilder;
 import com.mesaj.app.conf.DriverConfig;
+import com.mesaj.app.pageObjects.AuthenticationService;
 import com.mesaj.app.pageObjects.LandingPage;
 import com.mesaj.app.pageObjects.LandingPageService;
 import com.mesaj.app.tasks.NavigateTo;
@@ -18,22 +19,20 @@ public class SignUpStepDefs {
     HelpFunctions help = new HelpFunctions();
 
     @Autowired
-    private UserSignUp signUp;
-
-    @Autowired
     private NavigateTo navigate;
 
     @Autowired
     private LandingPageService landingPageService;
 
+    @Autowired
+    private AuthenticationService authenticationService;
+
     @Given("Pepito wants to have an account")
     public void pepito_wants_to_have_an_account() {
         navigate.signUpPage();
-        // Da click en Sign In
         landingPageService.clickSignInButton();
-        //Ingresar Email
-        //Click Create an account
-
+        authenticationService.writeEmail("pablito69@gmail.com");
+        authenticationService.clickCreateAccountBtn();
     }
 
     @When("he sends required information to get the account")
