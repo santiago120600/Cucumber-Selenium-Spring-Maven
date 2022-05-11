@@ -3,8 +3,6 @@ package com.mesaj.app.builders.data;
 import com.mesaj.app.enums.Gender;
 import com.mesaj.app.models.User;
 
-import java.io.File;
-
 public class UserBuilder {
     private User user;
 
@@ -26,14 +24,10 @@ public class UserBuilder {
     }
 
     public UserBuilder withDefaultInfo(){
-        File file = new File("src/test/resources/Img/277771456_1877504315771796_8801355044909146269_n.jpg");
-        String absolutePath = file.getAbsolutePath();
-
         this.user = User.builder()
                 .firstName("Santiago")
                 .lastName("Arvizu")
                 .address("Melchor Ocampo")
-                .email("mamitas@gmail.com")
                 .gender(Gender.female)
                 .country(1)
                 .birthDay("12")
