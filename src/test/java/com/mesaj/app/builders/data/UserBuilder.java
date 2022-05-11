@@ -33,17 +33,17 @@ public class UserBuilder {
                 .firstName("Santiago")
                 .lastName("Arvizu")
                 .address("Melchor Ocampo")
-                .skills("C")
-                .email("santiagodev12@gmail.com")
+                .email("mamitas@gmail.com")
                 .gender(Gender.female)
-                .country("India")
+                .country(1)
                 .birthDay("12")
                 .birthMonth(1)
                 .birthYear("2000")
                 .phone("4428979798")
-                .password("1234")
-                .confirmPassword("1234")
-                .uploadImgPath(absolutePath)
+                .password("12345678")
+                .zipCode("76220")
+                .state(1)
+                .city("massachusetts")
                 .build();
         return this;
     }

@@ -19,6 +19,10 @@ public class UserSignUp {
         signUp.selectMonthByIndex(user.getBirthMonth());
         signUp.selectDay(user.getBirthDay());
         signUp.writePassword(user.getPassword());
+        signUp.writeCity(user.getCity());
+        signUp.selectCountryByIndex(user.getCountry());
+        signUp.selectStateById(user.getState());
+        signUp.writeZipCode(user.getZipCode());
         signUp.submit();
     }
 }

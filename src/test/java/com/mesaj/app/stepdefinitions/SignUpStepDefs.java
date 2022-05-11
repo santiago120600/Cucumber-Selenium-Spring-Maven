@@ -38,7 +38,7 @@ public class SignUpStepDefs {
     public void pepito_wants_to_have_an_account() {
         navigate.signUpPage();
         landingPageService.clickSignInButton();
-        authenticationService.writeEmail("pablito69@gmail.com");
+        authenticationService.writeEmail("mamitas@gmail.com");
         authenticationService.clickCreateAccountBtn();
     }
 

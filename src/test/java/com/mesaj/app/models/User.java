@@ -12,8 +12,7 @@ public class User {
     private String address;
     private String email;
     private Gender gender;
-    private String skills;
-    private String country;
+    private int country;
     private String birthDay;
     private int birthMonth;
     private String birtMonth;
@@ -21,5 +20,7 @@ public class User {
     private String phone;
     private String password;
     private String confirmPassword;
-    private String uploadImgPath;
+    private String zipCode;
+    private int state;
+    private String city;
 }

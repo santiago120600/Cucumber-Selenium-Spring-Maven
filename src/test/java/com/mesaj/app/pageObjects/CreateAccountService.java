@@ -65,6 +65,18 @@ public class CreateAccountService {
         this.createAccountPage.getPasswordInput().sendKeys(password);
     }
 
+    public void writeCity(String city){
+       this.createAccountPage.getCityInput().sendKeys(city);
+    }
+
+    public void selectStateById(int index){
+        new Select(this.createAccountPage.getStateInput()).selectByIndex(index);
+    }
+
+    public void writeZipCode(String zip){
+        this.createAccountPage.getZipInput().sendKeys(zip);
+    }
+
     public void submit(){
         this.createAccountPage.getRegisterBtn().click();
     }
