@@ -23,9 +23,12 @@ public class DriverConfig {
     @Value("${element.wait.timeout.seconds}")
     private int webDriverWaitTimeOut;
 
+    @Value("${hubAddress}")
+    private String hubAddress;
+
     @Bean
     public WebDriver webDriver(){
-        return DriverFactory.get(driverType);
+        return DriverFactory.get(driverType, hubAddress);
     }
 
     @Bean

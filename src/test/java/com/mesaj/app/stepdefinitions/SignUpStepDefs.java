@@ -5,8 +5,12 @@ import com.mesaj.app.conf.DriverConfig;
 import com.mesaj.app.pageObjects.AuthenticationService;
 import com.mesaj.app.pageObjects.LandingPageService;
 import com.mesaj.app.tasks.NavigateTo;
+import com.mesaj.app.tasks.TakeScreenshot;
 import com.mesaj.app.tasks.UserSignUp;
 import com.mesaj.app.util.driver.HelpFunctions;
+
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ContextConfiguration(classes = {DriverConfig.class})
 public class SignUpStepDefs {
@@ -28,6 +32,9 @@ public class SignUpStepDefs {
 
     @Autowired
     private AuthenticationService authenticationService;
+
+    @Autowired
+    private TakeScreenshot takeScreenshot;
 
     @Autowired
     private UserSignUp signUp;
@@ -59,4 +66,11 @@ public class SignUpStepDefs {
     public void he_should_be_told_that_the_account_was_not_created() {
         assertThat(true).isEqualTo(false);
     }
+
+
+    @AfterStep
+    public void takeScreenShot(Scenario scenario){
+        takeScreenshot.captureAndAttachScreenshot(scenario);       
+    }
+
 }
